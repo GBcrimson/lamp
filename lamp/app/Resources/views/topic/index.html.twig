@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Topics</h2>
+    <a href="/topic/create">Add topic</a>
+    <table>
+        <thead>
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Topic
+            </th>
+            <th>
+                Content
+            </th>
+            <th>
+                Author
+            </th>
+            <th>
+                Time
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for topic in topics %}
+                <tr>
+                    <th>
+                        {{ topic.id }}
+                    </th>
+                    <td>
+                        <a href="/topic/view/{{ topic.id }}">{{ topic.title }}
+                        </a>
+                    </td>
+                    <td>
+                        {{ topic.content }}
+                    </td>
+                    <td>
+                        {{ topic.author.username }}
+                    </td>
+                    <td>
+                        {{ topic.date| date('F j, Y, g:i a') }}
+                    </td>
+                    <td>
+                        <a href="/topic/edit/{{ topic.id }}">edit
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/topic/delete/{{ topic.id }}">delete
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

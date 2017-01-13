@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>{{ user.username }}</h2>
+    <img class="avatar" src="{{ asset('uploads/ava/' ~ user.avatar) }}" alt="avatar">
+    <p>E-mail: {{ user.email }}</p>
+    <a href="/editprofile">Редактировать профиль</a>
+{% endblock %}

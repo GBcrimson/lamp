@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a href="/topics">Back to list</a>
+    <hr>
+    <h2>{{ topic.title }}</h2>
+    <p>{{ topic.content }}</p>
+
+    <h3>Author: {{ topic.author }}</h3>
+    <p>Publicated: {{ topic.date| date('F j, Y, g:i a') }}</p>
+    <a href="/topic/like/{{ topic.id}}">Like it</a>
+{% endblock %}

@@ -1,0 +1,26 @@
+<div class="header">
+    <ul>
+        <li>
+            <a href="/topics">Посты</a>
+        </li>
+        {#{% set user = app.session.get('auth') %}#}
+        {#{{ var }}#}
+        {% if app.session.get('auth') %}
+            <li>
+                <a href="/profile">Мой профиль</a>
+            </li>
+            <li>
+                <a href="/logout">Выход</a>
+            </li>
+        {% else %}
+            <li>
+                <a href="/login">Войти</a>
+            </li>
+            <li>
+                <a href="/register">Зарегистрироваться</a>
+            </li>
+        {% endif %}
+
+        {{ app.user }}
+    </ul>
+</div>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="{{ asset('bundles/framework/css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/framework/css/style.css') }}" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block header %}{% include 'header.html.twig' %}{% endblock %}
+        {% for flash_message in app.session.flashbag.get('notice') %}
+            {{ flash_message }}
+        {% endfor %}
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
